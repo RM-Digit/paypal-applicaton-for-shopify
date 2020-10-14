@@ -1,0 +1,64 @@
+<div class="Polaris-Page">
+  <div class="Polaris-Page__Header">
+    <div class="Polaris-Page__Title">
+      <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">Contact Us</h1>
+      <p class="Polaris-TextStyle--variationSubdued p-b-l-10">We can't solve your problem if you don't tell us about it.</p>
+      <p class="Polaris-TextStyle--variationSubdued">Or email us at: campus.martius.software@gmail.com</p>
+    </div>
+    <div class="Polaris-Page__Actions"></div>
+  </div>
+  <div class="Polaris-Page__Content">
+    <form action="<%= contact_us_path %>">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <div class="Polaris-FormLayout">
+                      <div class="Polaris-FormLayout__Item">
+                        <div class="">
+                          <div class="Polaris-Labelled__LabelWrapper">
+                            <div class="Polaris-Label">
+                                <label id="lblName" for="txtName" class="Polaris-Label__Text">Name</label>
+                            </div>
+                          </div>
+                          <div class="Polaris-TextField">
+                            <input id="txtName" class="Polaris-TextField__Input" aria-label="Store name" aria-labelledby="lblName" aria-invalid="false" name="txtName" value="">
+                            <div class="Polaris-TextField__Backdrop"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="Polaris-FormLayout__Item">
+                        <div class="">
+                          <div class="Polaris-Labelled__LabelWrapper">
+                            <div class="Polaris-Label"><label id="lblEmail" for="txtEmail" class="Polaris-Label__Text">Email</label></div>
+                          </div>
+                          <div class="Polaris-TextField"><input name="txtEmail" id="txtEmail" class="Polaris-TextField__Input" type="email" aria-label="Account email" aria-labelledby="lblEmail" aria-invalid="false" value="">
+                            <div class="Polaris-TextField__Backdrop"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="Polaris-FormLayout__Item">
+                        <div class="">
+                              <div class="Polaris-Labelled__LabelWrapper">
+                                <div class="Polaris-Label"><label id="lblMessage" for="txtMessage" class="Polaris-Label__Text">Message</label></div>
+                              </div>
+                              <div class="Polaris-TextField Polaris-TextField--hasValue Polaris-TextField--multiline">
+                                <textarea name="txtMessage" id="txtMessage" class="Polaris-TextField__Input" aria-label="Shipping address" aria-labelledby="lblMessage" aria-invalid="false" aria-multiline="true" ></textarea>
+                                <div class="Polaris-TextField__Backdrop"></div>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="Polaris-FormLayout__Item"><button type="submit" class="Polaris-Button">
+                        <span class="Polaris-Button__Content">
+                            <span>Submit</span>
+                        </span></button>
+                      </div>
+                      </div><span class="Polaris-VisuallyHidden"><button type="submit" aria-hidden="true"></button></span>
+<!--                </div>
+        </div> -->
+<!--        <div class="Polaris-PageActions">
+          <div class="Polaris-Stack Polaris-Stack--spacingTight Polaris-Stack--distributionEqualSpacing">
+            <div class="Polaris-Stack__Item"></div>
+            <div class="Polaris-Stack__Item"><button type="submit" class="Polaris-Button Polaris-Button--primary" disabled=""><span class="Polaris-Button__Content"><span>Submit</span></span></button></div>
+          </div>
+        </div> -->
+      </form>
+  </div>
+</div>

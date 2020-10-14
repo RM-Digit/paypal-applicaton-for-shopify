@@ -1,0 +1,37 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+
+# development:
+#     shopify_api_key: 63600ce01a24e1db61267c3855b339a9
+#     shopify_api_secret: a60dee96ffb8f6ddeeb321d70a2ea3ff
+#     domain: 192.168.0.105:3000
+
+#Tanner Development
+# <%= ENV['SHOPIFY_KEY'] %>
+# <%= ENV['SHOPIFY_KEY'] %>
+development:
+    shopify_api_key: bbf5c5b6c41ec119ee5c8d0c8fc91643
+    shopify_api_secret: b73f7e93af37e3264576487039377352
+    domain: paypal-order-tool-beta.herokuapp.com
+
+production2:
+    shopify_api_key: bbf5c5b6c41ec119ee5c8d0c8fc91643
+    shopify_api_secret: b73f7e93af37e3264576487039377352
+    domain: paypal-order-tool-beta.herokuapp.com
+
+production:
+    shopify_api_key: c40fcdd4a8ec9a0d615a4e4307f6b7bf
+    shopify_api_secret: 3aacf0c182fc82056708baa9dd8ec43e
+    domain: paypal-order-tool.herokuapp.com
+
+
+# production:
+#     shopify_api_key: bbf5c5b6c41ec119ee5c8d0c8fc91643
+#     shopify_api_secret: b73f7e93af37e3264576487039377352
+#     domain: paypal-order-tool-beta.herokuapp.com

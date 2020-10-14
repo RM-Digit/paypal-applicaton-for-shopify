@@ -1,0 +1,61 @@
+<div class="Polaris-Page  Polaris-Page--fullWidth">
+    <div class="Polaris-Page__Content">
+        <div class="Polaris-Layout">
+            <div class="Polaris-Layout__Section">
+                <div class="Polaris-Card">
+                    <div class="Polaris-Card__Section b-none">
+                        <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-b-30">Current Billing Status</p>
+                        <p class="p-b-l-10">Plan: <%= @name %></p>
+                        <p class="p-b-l-10">Price: $<%= @price %></p>
+                        <p class="p-b-l-10">Free Trial Length: <%= @trial_days %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
+                <div class="Polaris-Card right-card">
+                    <div class="Polaris-Card__Header right-title">
+                        <h2 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400">Partner Referal Program:</h2>
+                    </div>
+                    <div class="Polaris-Card__Section">
+                        <form action="<%= billing_info_path %>">
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <div class="Polaris-FormLayout">
+                                <div class="Polaris-FormLayout__Item">
+                                    <div class="">
+                                        <div class="Polaris-Labelled__LabelWrapper">
+                                            <div class="Polaris-Label">
+                                                <label id="lblName" for="influencer_code" class="Polaris-Label__Text">Influencer Code:</label>
+                                            </div>
+                                        </div>
+                                        <div class="Polaris-TextField">
+                                            <input id="influencer_code" class="Polaris-TextField__Input" aria-label="Store name" aria-labelledby="lblName" aria-invalid="false" name="influencer_code" value="">
+                                            <div class="Polaris-TextField__Backdrop"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Polaris-FormLayout__Item">
+                                    <button type="submit" class="Polaris-Button">
+                                        <span class="Polaris-Button__Content">
+                                            <span>Submit</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="Polaris-VisuallyHidden">
+                                <button type="submit" aria-hidden="true"></button>
+                            </span>
+                        </form>
+                    </div>
+                    <div class="Polaris-Card__Header m-b-10">
+                        <h2 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-t-15">Need Help?</h2>
+                    </div>
+                    <div class="Polaris-Card__Section">
+                        <ul class="Polaris-List Polaris-List--typeBullet">
+                            <li class="Polaris-List__Item Polaris-TextStyle--variationSubdued"><a class="Polaris-Link" href="<%= contact_us_path %>">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

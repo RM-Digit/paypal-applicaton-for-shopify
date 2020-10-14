@@ -1,0 +1,199 @@
+<div class="Polaris-Page  Polaris-Page--fullWidth">
+    <% if @credentials_present %>
+        <div class="Polaris-Page__Header">
+            <div class="Polaris-Page__Title">
+                <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">Create a limited-access PayPal App</h1>
+            </div>
+            <div class="Polaris-Page__Actions"></div>
+        </div>
+    <% else %>
+        <div class="Polaris-Page__Header">
+            <div class="Polaris-Page__Title">
+                <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">Our System is Experiencing High Volume</h1>
+                <p class="Polaris-TextStyle--variationSubdued">Please contact us to recieve an extended free-trial and a prospective timeline for resolution.</p>
+            </div>
+            <div class="Polaris-Page__Actions"></div>
+        </div>
+    <% end %>
+  <div class="Polaris-Page__Content">
+    <div class="Polaris-Layout">
+	  <div class="Polaris-Layout__Section">
+
+
+
+
+
+        <!-- the first iff should be @too_many_orders -->
+        <!-- elseif should be credentials_present -->
+
+
+
+
+        <% if @new_path %>
+            <div class="Polaris-Card">
+                <div class="Polaris-Card__Section b-none">
+                    <h1 style="text-align:center;" class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">Enter Your App Credentials</h1></br>
+
+                    <div class="Polaris-Page__Content">
+                        <form action="<%= update_instructions_path %>">
+                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <div class="Polaris-FormLayout">
+                                <div class="Polaris-FormLayout__Item">
+                                    <div class="">
+                                        <div class="Polaris-Labelled__LabelWrapper">
+                                            <div class="Polaris-Label">
+                                                <label id="lblName" for="client_id" class="Polaris-Label__Text">ClientId</label>
+                                            </div>
+                                        </div>
+                                        <div class="Polaris-TextField">
+                                            <input id="client_id" class="Polaris-TextField__Input" aria-label="Store name" aria-labelledby="lblName" aria-invalid="false" name="client_id" value="<%= @client_id %>">
+                                            <div class="Polaris-TextField__Backdrop"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Polaris-FormLayout__Item">
+                                    <div class="">
+                                        <div class="Polaris-Labelled__LabelWrapper">
+                                            <div class="Polaris-Label"><label id="lblEmail" for="secret" class="Polaris-Label__Text">Secret</label></div>
+                                        </div>
+                                        <div class="Polaris-TextField">
+                                            <input name="secret" id="secret" class="Polaris-TextField__Input" aria-label="Account email" aria-labelledby="lblEmail" aria-invalid="false" value="<%= @secret %>">
+                                            <div class="Polaris-TextField__Backdrop"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Polaris-FormLayout__Item">
+                                    <button type="submit" class="Polaris-Button">
+                                        <span class="Polaris-Button__Content">
+                                            <span>Update Credentials</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="Polaris-VisuallyHidden">
+                                <button type="submit" aria-hidden="true"></button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="Polaris-Card">
+              <div class="Polaris-Card__Section b-none">
+                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-b-30">Follow the Instructions To Create Your Credentials:</p>
+                <p class="p-b-l-10">1. <a class="Polaris-Link" target="_blank" href="https://developer.paypal.com/developer/applications/create?env=live">Login To PayPal's Developer Portal</a></p>
+                <p class="p-b-l-10">2. Login with the PayPal Account you wish to connect</p>
+                <p class="p-b-l-10">3. Enter an app name such as “Tracking Info Populator”</p>
+                <p class="p-b-l-10">4. Click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Create App</span></p>
+                <p class="p-b-l-10">5. You will need the Client Id and the Secret, but first scroll down to the <span class="Polaris-TextStyle--variationSubdued f-w-bold">Live App Settings</span> section</p>
+                <p class="p-b-l-10">6. Unselect all options except for <span class="Polaris-TextStyle--variationSubdued f-w-bold">Transaction Search</span> and click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Save</span></p>
+                <p class="p-b-l-10">7. Click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Continue</span> when prompted</p>
+                <p class="p-b-l-10">8. Now copy the <span class="Polaris-TextStyle--variationSubdued f-w-bold">Client ID</span> and <span class="Polaris-TextStyle--variationSubdued f-w-bold">Secret</span> into the entry form above (inside of this Shopify App) and your app is now connected!</p>
+              </div>
+            </div>
+
+        <% elsif @too_many_orders %>
+            <!-- For when there are too many orders in the last 30 days -->
+            <div class="Polaris-Card">
+                <div class="Polaris-Card__Section b-none">
+                    <h1 style="text-align:center;" class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">We're sorry!</h1></br>
+                    <p class="Polaris-TextStyle--variationSubdued p-b-l-10">
+                    Unfortunately our app cannot handle customers with more than 2250 orders in the last 30 days.  We are working incredibly hard to scale our tool to handle these larger customers - but we aren't ready yet! </br></br>
+
+                    What you should do: </br>
+                    -Uninstall the app </br>
+                    -Send us an e-mail through the Contact page telling us why you need our tool! </br></br>
+
+                    Optional: </br>
+                    -Let us know if you want to be part of our Beta Program for large customers.  We might not update all of your orders, but you will get a deep discount and it will help us improve much faster! </br></br>
+
+                    Thank you for your understanding as we grow</br>
+                    </p>
+                </div>
+            </div>
+        <% elsif @credentials_present %>
+	       <div class="Polaris-Card">
+    	      <div class="Polaris-Card__Section b-none">
+                <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-b-30">Follow the instructions:</p>
+                <p class="p-b-l-10">1. <a class="Polaris-Link" target="_blank" href="https://www.paypal.com/signin">Login to PayPal</a></p>
+                <p class="p-b-l-10">2. Click on <span class="Polaris-TextStyle--variationSubdued f-w-bold">Profile >> Profile and Settings </span>to <a class="Polaris-Link" target="_blank" href="https://www.paypal.com/businessprofile/settings/">view your settings</a></p>
+                <p class="p-b-l-10">3. Click on <span class="Polaris-TextStyle--variationSubdued f-w-bold">My Settings >> Manage Users </span>to <a class="Polaris-Link" target="_blank" href="https://www.paypal.com/businessmanage/users">get started</a> and create a user that is allowed to access your PayPal account.</p>
+                <p class="p-b-l-10">4. Click on <span class="Polaris-TextStyle--variationSubdued f-w-bold">Add User </span>and fill in the fields.  Enter any First and Last name, as well as an email different than your main PayPal account.  Use the credentials below for User ID and Password. </p>
+    		      	<div class="Polaris-Card user-box">
+    		          <div class="Polaris-Card__Section">
+    		            <div class="">
+    		              <div class="Polaris-Labelled__LabelWrapper">
+    		                <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text"><b>USER ID</b></label></div><p><b id="copyText"><%= @username %></b></p></div>
+    		            </div>
+    		          </div>
+    		          <div class="Polaris-Card__Section">
+    		            <div class="">
+    		              <div class="Polaris-Labelled__LabelWrapper">
+    		                <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text"><b>Password</b></label></div><b><%= @password %></b></div>
+    		            </div>
+    		          </div>
+    		        </div>
+                <p class="p-b-l-10">5. Click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Continue</span></p>
+
+                <!-- 
+                    TODO: add alternative "Access Reports"
+                 -->
+                 <p class="p-b-l-10">6. On the Permissions Selection Page you will select <span class="Polaris-TextStyle--variationSubdued f-w-bold">*TWO*</span> permissions. First, you will select the option "Access APIs and Developer Support Site"</p>
+                <p class="p-b-l-10">7. Still on the Permissions Selection Page, scroll down until you see the option "Virtual Agent".</p>
+                <p class="p-b-l-10">7. <span class="Polaris-TextStyle--variationSubdued f-w-bold">[ALTERNATIVE]</span> On the Permissions Selection Page, scroll down until you see the option: <span class="Polaris-TextStyle--variationSubdued f-w-bold">"Access all reports"</span></p>
+                <p class="p-b-l-10">7. <span class="Polaris-TextStyle--variationSubdued f-w-bold">[ALTERNATIVE]</span> On the Permissions Selection Page, scroll down until you see the option: <span class="Polaris-TextStyle--variationSubdued f-w-bold">"Access  Reports"</span></p>
+    		    <p class="p-b-l-10">8. Click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Continue</span></p>
+                <p class="p-b-l-10">9. Click <span class="Polaris-TextStyle--variationSubdued f-w-bold">Done</span></p>
+                <p class="p-b-l-10">10.<span class="Polaris-TextStyle--variationSubdued f-w-bold"> Important:</span> Test the new login to verify functionality.  There also might be a phone number confirmation prompt - do not put in a phone number unless required.</p>
+                <p class="p-b-l-10">11. You're Done! Sit back and relax as your orders are seemlessly updated in PayPal.</p>
+    	      </div>
+    	    </div>
+        <% else %>
+            <!-- For when there are no proxies! -->
+            <div class="Polaris-Card">
+                <div class="Polaris-Card__Section b-none">
+                    <p class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-b-30">Please uninstall the app or contact us for an extended free trial. Thank you for your patience and understanding.</p>
+                </div>
+            </div>
+        <% end %>
+      </div>
+	  <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
+	    <div class="Polaris-Card right-card">
+	      <div class="Polaris-Card__Header right-title">
+	        <h2 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400">Privacy First</h2>
+	      </div>
+	      <div class="Polaris-Card__Section right-section">
+	        <p class="m-b-20"><b>You should never disclose your main PayPal e-mail address and / or password. Always create dedicated accounts for your colleagues or partners, with access adapted to their needs.</b></p>
+	        <p class="m-b-20"><a class="Polaris-Link" target="_blank" href="https://paypal.com">PayPal allows for up to 200 of these dedicated accounts </a>to be created.</p>
+	        <p>We only require the most basic access - programatic access for searching and updating your past orders.  We will never ask to move or transfer your money or contact your customers.</p>
+	      </div>
+	      <!-- <div class="Polaris-Card__Header m-b-10">
+	        <h2 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-t-15">Video Tutorial</h2>
+	      </div>
+	      <div class="Polaris-Card__Section right-section">
+	        <iframe height="315" src="https://www.youtube.com/embed/-WZHGzQ63EI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	      </div> -->
+	      <div class="Polaris-Card__Header m-b-10">
+	        <h2 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge f-w-400 m-t-15">Need More Details?</h2>
+	      </div>
+	      <div class="Polaris-Card__Section">
+	      	<ul class="Polaris-List Polaris-List--typeBullet">
+	            <!-- TODO: add website link back -->
+<!-- 			  <li class="Polaris-List__Item Polaris-TextStyle--variationSubdued">Visit our <a class="Polaris-Link" target="_blank" href="https://google.com">Website</a> </li> -->
+			  <li class="Polaris-List__Item Polaris-TextStyle--variationSubdued"><a class="Polaris-Link" href="<%= contact_us_path %>">Contact Us</a></li>
+			</ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  </div>
+</div>

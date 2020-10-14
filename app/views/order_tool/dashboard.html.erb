@@ -1,0 +1,178 @@
+<div class="Polaris-Page Polaris-Page--fullWidth">
+  <div class="Polaris-Page__Header">
+    <div class="Polaris-Page__Title">
+      <h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">Dashboard</h1>
+    </div>
+    <div class="Polaris-Page__Actions"></div>
+  </div>
+  <div class="Polaris-Page__Content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% if @too_many_orders %>
+        <!-- For when there are too many ordes - currently more than 2000 in last 30 days -->
+      <div class="Polaris-Layout">
+        <div class="Polaris-Layout__Section">
+          <div class="Polaris-Card">
+              <div class="Polaris-Card__Section b-none">
+                  <h1 style="text-align:center;" class="Polaris-DisplayText Polaris-DisplayText--sizeLarge w-100">We're sorry!</h1></br>
+                  <p class="Polaris-TextStyle--variationSubdued p-b-l-10">
+                    Unfortunately our app cannot handle customers with more than 2250 orders in the last 30 days.  We are working incredibly hard to scale our tool to handle these larger customers - but we aren't ready yet! </br></br>
+
+                    What you should do: </br>
+                    -Uninstall the app </br>
+                    -Send us an e-mail through the Contact page telling us why you need our tool! </br></br>
+                    
+                    Optional: </br>
+                    -Let us know if you want to be part of our Beta Program for large customers.  We might not update all of your orders, but you will get a deep discount and it will help us improve much faster! </br></br>
+
+                    Thank you for your understanding as we grow</br>
+                  </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="Polaris-Layout">
+        <div class="Polaris-Layout__Section">
+          <div class="Polaris-Card">
+            <div class="Polaris-Card__Header">
+              <h2 class="Polaris-Heading">Reports</h2>
+            </div>
+            <div class="Polaris-Card__Section">
+              <div id="Tabify"> 
+                <ul role="tablist" class="Polaris-Tabs"> 
+  <!--                 <li class="Polaris-Tabs__TabContainer"><button id="tabs-1" class="Polaris-Tabs__Tab Polaris-Tabs__Tab--selected" aria-selected="true"><span class="Polaris-Tabs__Title">Last 24h</span></button></li>  -->
+                  <li class="Polaris-Tabs__TabContainer"><button id="tabs-2" class="Polaris-Tabs__Tab" aria-selected="false"><span class="Polaris-Tabs__Title">Current Month</span></button></li> 
+                  <li class="Polaris-Tabs__TabContainer"><button id="tabs-3" class="Polaris-Tabs__Tab" aria-selected="false"><span class="Polaris-Tabs__Title">Last Month</span></button></li> 
+                </ul> 
+                <!-- TODO: make sure these are re-instated -->
+  <!--               <div class="tabs-1 tabify_tab quick-setting"> 
+                  <div class="Polaris-Card">
+                    <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label class="Polaris-Label__Text dis-in-blk">Orders Fullfilled </label></div>0</div>
+                      </div>
+                    </div>
+                    <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Orders with tracking info submitted to PayPal</label></div>1</div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="tabs-2 tabify_tab quick-setting"> 
+                  <div class="Polaris-Card">
+  <!--                   <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label class="Polaris-Label__Text dis-in-blk">Orders Fullfilled </label></div>0</div>
+                      </div>
+                    </div> -->
+                    <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Orders with tracking info submitted to PayPal</label></div><%=@paypal_orders_fulfilled_current %></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tabs-3 tabify_tab quick-setting"> 
+                  <div class="Polaris-Card">
+  <!--                   <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label class="Polaris-Label__Text dis-in-blk">Orders Fullfilled </label></div><%= @orders_fulfilled %></div>
+                      </div>
+                    </div> -->
+                    <div class="Polaris-Card__Section">
+                      <div class="">
+                        <div class="Polaris-Labelled__LabelWrapper">
+                          <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Orders with tracking info submitted to PayPal</label></div><%= @paypal_orders_fulfilled_last %></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="Polaris-Card">
+            <div class="Polaris-Banner Polaris-Banner--statusSuccess Polaris-Banner--withinPage" tabindex="0" role="status" aria-live="polite" aria-labelledby="Banner2Heading" aria-describedby="Banner2Content" style="box-shadow:none;">
+              <div>
+                <div class="Polaris-Banner__Heading" id="Banner2Heading">
+                  <p class="Polaris-Heading">Case Study </p>
+                </div>
+                <div class="Polaris-Banner__Content" id="Banner2Content">
+                 <h3 aria-label="Accounts" class="Polaris-Subheading Polaris-TextStyle--variationPositive">Apps are slowing down youe shopify store</h3>
+                 On Walmart.com, <b class="Polaris-TextStyle--variationStrong">every 100ms improvment also resulted in up to a 1% increase in revenue.</b> Learn how you can dramatically increase your Shopify store. 
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="Polaris-Layout__Section Polaris-Layout__Section--secondary">
+          <!-- Only visible if a flag is set -->
+          <% if @paypal_not_enabled %>
+
+            <div class="Polaris-Card">
+              <div class="Polaris-Banner Polaris-Banner--statusSuccess Polaris-Banner--withinPage" tabindex="0" role="status" aria-live="polite" aria-labelledby="Banner7Heading" aria-describedby="Banner7Content">
+                <div class="Polaris-Banner__Ribbon"><span class="Polaris-Icon Polaris-Icon--colorGreenDark Polaris-Icon--isColored Polaris-Icon--hasBackdrop"><svg class="Polaris-Icon__Svg" viewBox="0 0 20 20" focusable="false" aria-hidden="true"><g fill-rule="evenodd"><path fill="currentColor" d="M2 3h11v4h6l-2 4 2 4H8v-4H3"></path><path d="M16.105 11.447L17.381 14H9v-2h4a1 1 0 0 0 1-1V8h3.38l-1.274 2.552a.993.993 0 0 0 0 .895zM2.69 4H12v6H4.027L2.692 4zm15.43 7l1.774-3.553A1 1 0 0 0 19 6h-5V3c0-.554-.447-1-1-1H2.248L1.976.782a1 1 0 1 0-1.953.434l4 18a1.006 1.006 0 0 0 1.193.76 1 1 0 0 0 .76-1.194L4.47 12H7v3a1 1 0 0 0 1 1h11c.346 0 .67-.18.85-.476a.993.993 0 0 0 .044-.972l-1.775-3.553z"></path></g></svg></span></div>
+                <div>
+                  <div class="Polaris-Banner__Heading" id="Banner7Heading">
+                    <p class="Polaris-Heading">You might not have setup your PayPal Account</p>
+                    <span>Please check your account and fulfill a transaction to verify status.</span>
+                  </div>
+                  <div class="Polaris-Banner__Content" id="Banner7Content">
+                    <div class="Polaris-Banner__Actions">
+                      <div class="Polaris-ButtonGroup">
+                        <div class="Polaris-ButtonGroup__Item"><button type="button" class="Polaris-Button Polaris-Button--primary" onclick="window.location.href='/order_tool/instructions'"><span class="Polaris-Button__Content"><span>View Paypal Credentials</span></span></button></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="Polaris-Card">
+            <div class="Polaris-Card__Header">
+              <h2 class="Polaris-Heading">Account Status</h2>
+            </div>
+            <div class="Polaris-Card__Section">
+              <div class="">
+                <div class="Polaris-Labelled__LabelWrapper">
+                  <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Billing Level</label></div>Basic Plan</div>
+              </div>
+            </div>
+            <div class="Polaris-Card__Section">
+              <div class="">
+                <div class="Polaris-Labelled__LabelWrapper">
+                  <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Orders submitted all time</label></div><%= @all_time_paypal_orders_fulfilled %></div>
+              </div>
+            </div>
+            <div class="Polaris-Card__Section">
+              <div class="">
+                <div class="Polaris-Labelled__LabelWrapper">
+                  <div class="Polaris-Label"><label id="TextField12Label" for="TextField12" class="Polaris-Label__Text">Paypal credential</label></div><a class="Polaris-Link" href="<%= order_tool_instructions_path %>">View</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
